@@ -1,0 +1,23 @@
+{
+  "name": "sca-stardock-run",
+  "version": "1.0.0",
+  "description": "run stardock containers",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "run.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youngmd/sca-stardock-run.git"
+  },
+  "author": "Michael Young <youngmd@iu.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youngmd/sca-stardock-run/issues"
+  },
+  "homepage": "https://github.com/youngmd/sca-stardock-run#readme"
+}
