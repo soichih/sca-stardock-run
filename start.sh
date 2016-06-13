@@ -10,6 +10,6 @@ fi
 
 UUID=$(cat /proc/sys/kernel/random/uuid)
 
-buildid=`./jq -r '.[build_task_id]' config.json`
+buildid=`$SCA_SERVICE_DIR/jq -r '.[build_task_id]' config.json`
 docker -d -P --name=$UUID $buildid /usr/sbin/sshd -D
 echo $UUID > container.name
