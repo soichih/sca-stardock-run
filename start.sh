@@ -22,6 +22,6 @@ mkdir -p $output
 chmod a+rw $output
 chmod a+r $input
 
-docker run -d -P --name=$UUID $imageid -v /home/docker/input:$input -v /home/docker/output:$output /usr/sbin/sshd -D
+docker run -d -P --name=$UUID -v /home/docker/input:$input -v /home/docker/output:$output  $imageid /usr/sbin/sshd -D
 echo $UUID > container.name
 echo `docker port $UUID` > container.port
