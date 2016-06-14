@@ -12,6 +12,16 @@ UUID=$(cat /proc/sys/kernel/random/uuid)
 
 buildid=`$SCA_SERVICE_DIR/jq -r '.build_task_id' config.json`
 imageid=`$SCA_SERVICE_DIR/jq -r .[0].imageid ../$buildid/products.json`
-docker run -d -P --name=$UUID $imageid /usr/sbin/sshd -D
+
+#setup directories
+input=/docker-data/$UUID/input
+output=/docker-data/$UUID/output
+mkdir -p $input
+mkdir -p $output
+
+chmod a+rw $output
+chmod a+r $input
+
+docker run -d -P --name=$UUID $imageid -v /home/docker/input:$input -v /home/docker/output:$output /usr/sbin/sshd -D
 echo $UUID > container.name
 echo `docker port $UUID` > container.port
