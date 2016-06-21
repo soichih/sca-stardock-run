@@ -31,6 +31,7 @@ port=`cat container.port`
 cat << EOT > products.json
 [{
         "name": "$UUID",
-        "port": "$port"
+        "port": "$port",
+        "output" "$output"
 }]
 EOT
