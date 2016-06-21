@@ -25,3 +25,12 @@ chmod a+r $input
 docker run -d -P --name=$UUID -v $input:/home/docker/input -v $output:/home/docker/output  $imageid /usr/sbin/sshd -D
 echo $UUID > container.name
 echo `docker port $UUID` > container.port
+
+port=`cat container.port`
+
+cat << EOT > products.json
+[{
+        "name": "$UUID"
+        "port": "$port"
+}]
+EOT
