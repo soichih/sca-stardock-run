@@ -18,7 +18,7 @@ input=/docker-data/$UUID/input
 output=/docker-data/$UUID/output
 mkdir -p $input
 mkdir -p $output
-ln -s output $output
+ln -s $output output
 chmod a+rw $output
 chmod a+r $input
 
