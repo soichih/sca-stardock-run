@@ -1,3 +1,3 @@
 container=`cat container.name`
 
-docker inspect --type=container $container -f {{.State.Running}}
+docker inspect --type=container -f {{.State.Running}} $container
