@@ -22,7 +22,7 @@ ln -s $output output
 chmod a+rw $output
 chmod a+r $input
 
-docker run -d -P --name=$UUID -v $input:/home/docker/input -v $output:/home/docker/output  $imageid /usr/sbin/sshd -D
+docker run -d -P --name=$UUID -v $input:/home/docker/input -v $output:/home/docker/output -e TERM=xterm-256color $imageid /usr/sbin/sshd -D
 echo $UUID > container.name
 echo `docker port $UUID` > container.port
 
